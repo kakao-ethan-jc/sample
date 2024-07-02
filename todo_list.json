@@ -10,7 +10,7 @@
     "is_started": false,
     "started_at": null,
     "completed_at": null,
-    "due_date": "2024-07-10"
+    "due_date": "2020-12-09T09:16:56.000124Z"
   },
   {
     "id": "1",
@@ -21,7 +21,7 @@
     "is_started": false,
     "started_at": null,
     "completed_at": null,
-    "due_date": "2024-07-15"
+    "due_date": "2020-12-09T09:16:56.000124Z"
   },
   {
     "id": "2",
@@ -32,7 +32,7 @@
     "is_started": false,
     "started_at": null,
     "completed_at": null,
-    "due_date": "2024-07-20"
+    "due_date": "2020-12-09T09:16:56.000124Z"
   },
   {
     "id": "3",
@@ -43,7 +43,7 @@
     "is_started": false,
     "started_at": null,
     "completed_at": null,
-    "due_date": "2024-07-25"
+    "due_date": "2020-12-09T09:16:56.000124Z"
   },
   {
     "id": "4",
@@ -54,7 +54,7 @@
     "is_started": false,
     "started_at": null,
     "completed_at": null,
-    "due_date": "2024-07-30"
+    "due_date": "2020-12-09T09:16:56.000124Z"
   },
   {
     "id": "5",
@@ -65,7 +65,7 @@
     "is_started": false,
     "started_at": null,
     "completed_at": null,
-    "due_date": "2024-08-05"
+    "due_date": "2020-12-09T09:16:56.000124Z"
   },
   {
     "id": "6",
@@ -76,7 +76,7 @@
     "is_started": false,
     "started_at": null,
     "completed_at": null,
-    "due_date": "2024-08-10"
+    "due_date": "2020-12-09T09:16:56.000124Z"
   },
   {
     "id": "7",
@@ -87,7 +87,7 @@
     "is_started": false,
     "started_at": null,
     "completed_at": null,
-    "due_date": "2024-08-15"
+    "due_date": "2020-12-09T09:16:56.000124Z"
   },
   {
     "id": "8",
@@ -98,7 +98,7 @@
     "is_started": false,
     "started_at": null,
     "completed_at": null,
-    "due_date": "2024-08-20"
+    "due_date": "2020-12-09T09:16:56.000124Z"
   }
   ]
 }
