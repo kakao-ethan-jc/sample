@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹뷰 파일 첨부 테스트</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        input[type="file"] {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>안드로이드 웹뷰 파일 필터링 테스트</h1>
+
+    <div class="container">
+        <h2>테스트 1: 모든 이미지 파일 (image/*)</h2>
+        <p>이 버튼을 누르면 모든 종류의 이미지 파일을 선택할 수 있어야 합니다.</p>
+        <form>
+            <label for="file-picker-all">모든 이미지 선택:</label><br>
+            <input type="file" id="file-picker-all" accept="image/*">
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>테스트 2: PNG와 JPG 파일 (image/png, image/jpeg)</h2>
+        <p>이 버튼을 누르면 PNG와 JPG 형식의 이미지만 선택할 수 있도록 필터링되어야 합니다.</p>
+        <form>
+            <label for="file-picker-specific">PNG, JPG만 선택:</label><br>
+            <input type="file" id="file-picker-specific" accept="image/png, image/jpeg">
+        </form>
+    </div>
+
+</body>
+</html>
