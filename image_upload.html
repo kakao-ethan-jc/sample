@@ -22,7 +22,51 @@
         input[type="file"] {
             margin-top: 10px;
         }
+        /* 버튼 스타일 추가 */
+        button {
+            padding: 8px 12px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
     </style>
+
+    <script>
+        if (window.kanana === undefined || window.kanana === null) window.kanana = {}
+
+        window.kanana.saveMedia = function(url, shareObject) {
+           var request = {}
+           request.interfaceType = "SaveMediaRequest"
+           
+           // kanana.randomUUID()가 정의되어 있는지 확인
+           if (typeof kanana.randomUUID === 'function') {
+              request.requestId = kanana.randomUUID();
+           } else {
+              console.warn("kanana.randomUUID()가 정의되지 않아 임시 ID를 사용합니다.");
+              request.requestId = 'temp-id-' + Date.now(); // 임시 ID 생성
+           }
+
+           if (url === undefined) { request.url = null } else { request.url = url }
+           if (shareObject === undefined) { request.shareObject = null } else { request.shareObject = shareObject }
+           
+           console.log("saveMedia 함수 내부: 네이티브 인터페이스 호출 시도...", request);
+
+           // _iKananaWebMessage 인터페이스가 있는지 확인
+           if (window._iKananaWebMessage && typeof window._iKananaWebMessage.postMessage === 'function') {
+               window._iKananaWebMessage.postMessage(JSON.stringify(request));
+               console.log("네이티브 메시지 전송 성공.");
+           } else {
+               console.warn("_iKananaWebMessage.postMessage가 정의되지 않았습니다. (웹뷰 환경이 아니거나 스크립트 주입 전일 수 있습니다)");
+           }
+        }
+    </script>
 </head>
 <body>
 
@@ -45,6 +89,34 @@
             <input type="file" id="file-picker-specific" accept="image/jpeg,image/png">
         </form>
     </div>
+
+    <div class="container">
+        <h2>테스트 3: saveMedia 함수 호출</h2>
+        <p>이 버튼을 누르면 <code>kanana.saveMedia()</code> 함수가 테스트용 데이터와 함께 호출됩니다.</p>
+        <button type="button" onclick="callSaveMedia()">saveMedia 호출 테스트</button>
+        <p style="font-size: 0.9em; color: #555;">(웹뷰 환경이 아닌 경우 브라우저 개발자 콘솔 로그를 확인하세요)</p>
+    </div>
+
+    <script>
+        function callSaveMedia() {
+            // 테스트용 URL 및 공유 객체
+            var testUrl = "https://picsum.photos/id/237/200/300"; // 테스트용 이미지 URL
+            var testShareObject = { 
+                shareTitle: "테스트 강아지 이미지", 
+                shareMessage: "이것은 saveMedia 테스트입니다.",
+                sharePriorityAppIds: ["com.instagram.android","com.facebook.katana"],
+            };
+
+            console.log("callSaveMedia: kanana.saveMedia 호출 시도...", testUrl, testShareObject);
+            
+            // <head>에서 정의된 함수 호출
+            if (typeof window.kanana.saveMedia === 'function') {
+                window.kanana.saveMedia(testUrl, testShareObject);
+            } else {
+                console.error("window.kanana.saveMedia 함수가 정의되지 않았습니다.");
+            }
+        }
+    </script>
 
 </body>
 </html>
